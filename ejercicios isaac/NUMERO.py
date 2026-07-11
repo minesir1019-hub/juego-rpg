@@ -1,0 +1,5 @@
+print("hola, escribe un numero entero")
+numero1 = int(input())
+print("ahora escribe otro numero decimal")
+numero2= float(input())
+print("el primero numero mostrado es", numero1, " y el segundo numero mostrado es ", numero2)

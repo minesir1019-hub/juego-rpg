@@ -1,0 +1,8 @@
+Algoritmo sin_titulo
+	definir i Como Entero
+	Repetir
+		escribir'imngrse contraseña'
+		leer i 
+	Hasta Que i=1234
+FinAlgoritmo
+

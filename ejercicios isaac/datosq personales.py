@@ -1,0 +1,6 @@
+nombre= input("hola, escribe tu nombre ")
+altura= input("ahora escribe tu altura ")
+edad= int(input("ahora por ultimo escribe tu edad "))
+print("tu nombre es", nombre)
+print("tu altura es", altura)
+print("tu edad es", edad)
