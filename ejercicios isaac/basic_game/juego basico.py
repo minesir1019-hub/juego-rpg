@@ -2,6 +2,10 @@ import time
 import random
 
 
+class cofre:
+    def __init__(self,monedas):
+        self.monedas=monedas
+       
 class Personaje:
     def __init__(self, life, name, velocidad):
         self.life = life
@@ -11,12 +15,12 @@ class Personaje:
 # warrior hereda de Personaje
 
 # warrior = Warrior("Isaac", 100, "Espada", "Armadura")
-class Warrior(Personaje):
-     def __init__ (self,life,name,weapon,armor,velocidad):
-        super().__init__(life, name, velocidad)
+class Warrior(Personaje,):
+     def __init__ (self,life,name,weapon,armor,velocidad,monedas):
+        super().__init__(life, name, velocidad,monedas)
         self.weapon=weapon
         self.armor=armor
-
+        self.monedas=monedas
    
 class weapon:
      def __init__ (self,damage,name):
@@ -45,8 +49,8 @@ class YouEnemy(Enemy):
 
 
 class you(Warrior):
-     def __init__(self,life,name,weapon,armor,velocidad):
-        super().__init__(life, name, weapon, armor, velocidad) 
+     def __init__(self,life,name,weapon,armor,velocidad,monedas):
+        super().__init__(life, name, weapon, armor, velocidad, monedas) 
 
 class room:
      def __init__(self,name):
@@ -56,6 +60,26 @@ class room:
 class door(room):
      def __init__(self,name):
         super().__init__(name)
+
+
+
+
+def encuentro_cofre():
+    print("Te encuentras con un cofre.")
+    time.sleep(1)
+    print("Abres el cofre y encuentras con monedas.")
+    time.sleep(1)
+    print("Recoges las monedas y el dinero y continúas tu camino.")
+    match random.randint(1, 3):
+        case 1:
+          cofre1=+you.monedas
+          print(f"Has recogido {cofre1.monedas} monedas.")
+        case 2:
+          cofre2=+you.monedas
+          print(f"Has recogido {cofre2.monedas} monedas.")
+        case 3:
+          cofre3=+you.monedas
+          print(f"Has recogido {cofre3.monedas} monedas.")
 
 
 # Metodo Combate
@@ -106,6 +130,7 @@ def random_encounter1():
         eleccion_puerta(enemy)
     elif encounter == 2:
         print("Te encuentras con un cofre.")  
+        encuentro_cofre(you)
     elif encounter == 3:
         print("No te encuentras con nada.")
     elif encounter == 4:
@@ -129,10 +154,16 @@ def random_encounter2():
         eleccion_puerta(enemy)
     elif encounter == 3:
         print("Te encuentras con un cofre.")
+        encuentro_cofre(you)
     elif encounter == 4:
         print("Te encuentras con un cofre.")
+        encuentro_cofre(you)
     elif encounter == 5:
         print("Te encuentras con un cofre.")
+        encuentro_cofre(you)
+
+
+
 
 def random_encounter3():
     encounter = random.randint(0, 5)
@@ -150,19 +181,21 @@ def random_encounter3():
         print("No te encuentras con nada.")    
 
 
+
 def random_enemy():
-    match random.randint(0,2):
+    match random.randint(0,1):
         case 0:
             print("El enemigo es un: ", enemy1.name)
             return enemy1
         case 1:
             print("El enemigo es un: ", enemy2.name)
             return enemy2
-        case 2:
-            print("El enemigo es un: ", enemy3.name)
-            return enemy3
-     
     
+
+
+
+
+
 
 def eleccion_puerta(enemy):
     while you.life > 0 and enemy.life > 0:
@@ -182,6 +215,11 @@ def eleccion_puerta(enemy):
                         time.sleep(1)
                         print(f"Arma: {you.weapon.name}\n, Daño: {you.weapon.damage}\n")
 
+
+
+
+
+
 # Instancias
 
 espada_d=weapon(10,"espada de hierro")
@@ -198,12 +236,16 @@ puerta_c=room("la tercera puerta")
 
 
 
-guerrero2=Warrior(70,"picaro",espada_c,armadura_d,15)
-guerrero1=Warrior(100,"espadachin",espada_d,armadura_c,10)
+guerrero2=Warrior(70,"picaro",espada_c,armadura_d,2,0)
+guerrero1=Warrior(100,"espadachin",espada_d,armadura_c,1,0)
 
 enemy1=Enemy(50,"goblin comun",5,espada_d,armadura_d,"goblin picaro")
 enemy2=Enemy(100,"goblin jefe",10,espada_c,armadura_c,"goblin guerrero")
 enemy3=Enemy(150,"goblin rey",15,espada_b,armadura_b,"goblin rey")
+
+cofre1=cofre(10)
+cofre2=cofre(50)
+cofre3=cofre(100)
 
 
 
