@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from src.hotline_la_matanzav4 import Game
+from src.hotline_la_matanzav5 import Game
 
 
 def main():
