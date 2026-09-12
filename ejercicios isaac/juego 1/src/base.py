@@ -36,7 +36,7 @@ class Arma:
             return
 
         self.tiempo_desde_disparo = 0
-
+        
         self.balas.append({
             "pos": pygame.Vector2(origen),
             "vel": direccion * self.velocidad_bala,
