@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from src.dynamic_ilumination import Game
+from src.dynamic_ilumination2 import Game
 
 
 def main():
