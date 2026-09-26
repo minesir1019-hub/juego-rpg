@@ -32,4 +32,21 @@ bala1 = Bala(pygame.Vector2(0,0),pygame.Vector2(10,0),1)
 metralleta = Arma(0.1,30,bala1)
 personaje = Jugador(pygame.Vector2(400,300),pygame.Vector2(0,0),1,metralleta)
 
+personaje.movimiento = pygame.Vector2(0, 0)
 
+teclas = pygame.key.get_pressed()
+
+if teclas[pygame.K_w]:
+        personaje.movimiento.y = -1
+
+if teclas[pygame.K_s]:
+        personaje.movimiento.y = 1
+
+if teclas[pygame.K_a]:
+        personaje.movimiento.x = -1
+
+if teclas[pygame.K_d]:
+        personaje.movimiento.x = 1
+
+   
+personaje.posicion += personaje.movimiento * 5
